@@ -1,0 +1,10 @@
+---
+ - hosts: dev
+   tasks:
+   - name: Create file in remote machine
+     file: dest=/tmp/f2 state=touch mode=644
+
+   - name: Create another file in local machine
+     file: dest=/tmp/f2 state=touch mode=644
+     delegate_to: 127.0.0.1
+ 

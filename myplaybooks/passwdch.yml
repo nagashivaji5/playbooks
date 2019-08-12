@@ -1,0 +1,9 @@
+---
+ - hosts: dev
+   become: true
+   tasks:
+   - name: Check when the password was changes for remote machines
+     shell: chage -l {{item}}
+     with_items:
+     - 'user1'
+     - 'user2'

@@ -1,0 +1,18 @@
+---
+ - hosts: dev
+   vars:
+   - host_name: "172.31.29.18"
+   tasks:
+   - name: Send Email Alerts
+     mail:  
+      host: smtp.gmail.com
+      port: 587
+#      username: hemadhri.official@gmail.com
+#      password: fight4family
+      from: root
+      to: shivaji629@gmail.com
+      subject: Sample Email
+      body: "Host name is {{ host_name }}"
+     delegate_to: localhost
+ 
+ 

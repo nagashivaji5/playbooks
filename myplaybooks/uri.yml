@@ -1,0 +1,17 @@
+---
+ - hosts: dev
+   vars:
+   - url_name: 54.185.44.162
+   tasks:
+   - name: Smoke test
+     uri: url=http://{{ url_name }} status_code=200
+     register: test_status
+  
+   - name: Stat module
+     debug: var=test_status
+
+
+   - name: Create file
+     file: dest=/tmp/f44 state=touch
+     when: test_status.failed == true
+

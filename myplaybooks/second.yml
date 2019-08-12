@@ -1,0 +1,19 @@
+---
+ - hosts: dev
+   sudo: yes
+   tasks:
+   - name: Install Java
+     yum: name=java-1.8.0-openjdk state=present
+
+   - name: INstall EPEL releases
+     yum: name=epel-release state=present
+
+   - name: Install Nginx server
+     yum: name=nginx state=present
+
+#  - name: Change port number of Nginx server
+#     replace: regexp=80 replace=3200 path=/etc/nginx/nginx.conf
+
+   - name: Start service
+     service: name=nginx state=restarted
+     

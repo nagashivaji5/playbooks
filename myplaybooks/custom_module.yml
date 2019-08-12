@@ -1,0 +1,10 @@
+---
+ - hosts: dev
+   tasks:
+   - name: Check uptime through customer module
+     action:chkuptime
+     register: out
+
+   - debug: var=out
+
+  

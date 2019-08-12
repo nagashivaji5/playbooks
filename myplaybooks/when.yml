@@ -1,0 +1,13 @@
+---
+ - hosts: dev
+   tasks:
+   - name: Display name 
+     shell: /bin/echo shivaji
+     register: dis_out
+
+   - name: debug options
+     debug: var=dis_out
+ 
+   - name: Display uptime
+     shell: uptime
+     when: dis_out.rc == 0

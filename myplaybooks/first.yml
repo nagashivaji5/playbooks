@@ -1,0 +1,6 @@
+---
+ - hosts: dev
+   tasks:
+   - name: Simple Playbook
+     shell: echo hello > /home/user1/h44
+   
